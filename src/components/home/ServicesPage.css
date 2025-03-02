@@ -1,0 +1,91 @@
+.services-section {
+  padding: 100px 0;
+}
+
+.sec-heading {
+  font-weight: bold;
+  font-size: 34px;
+  margin-bottom: 20px;
+}
+
+.sec-description {
+  width: 880px;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 60px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: normal;
+  font-size: 17px;
+  color: #7d7987;
+  text-align: center;
+}
+
+.sec-padding {
+  padding: 0 100px;
+}
+
+.sec-card {
+  padding: 30px;
+  margin: 40px 0;
+  border: none;
+  background-color: #ffffff;
+  width: 420px;
+  height: 355px;
+  border: none;
+  text-align: left;
+  box-shadow: 0 15px 35px 0 rgba(58, 36, 20, 0.12);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-title {
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.card-desc {
+  margin-top: 10px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  color: #7d7987;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .services-section {
+    padding: 60px 0;
+  }
+
+  .sec-heading {
+    font-size: 28px;
+  }
+
+  .sec-description {
+    width: auto;
+    font-size: 15px;
+    margin: 0 20px;
+  }
+
+  .sec-padding {
+    padding: 0 20px;
+  }
+
+  .sec-card {
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .card-desc {
+    font-size: 14px;
+  }
+}
+
