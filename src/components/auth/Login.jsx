@@ -1,88 +1,69 @@
-"use client"
-
-import { useState, useContext } from "react"
-import { useNavigate, Link } from "react-router-dom"
-import { AuthContext } from "../../context/AuthContext"
-import { LanguageContext } from "../../context/LanguageContext"
-import "../../styles/Auth.css"
+import { useState, useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import { useNavigate, Link } from "react-router-dom";
+import "../../styles/Auth.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
-  const { login } = useContext(AuthContext)
-  const { t } = useContext(LanguageContext)
-  const navigate = useNavigate()
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setError("")
-
-    // Simple validation
-    if (!email || !password) {
-      setError("Please enter both email and password")
-      return
-    }
-
-    // In a real app, this would make an API call
-    // For demo purposes, we'll simulate a successful login
-    const success = login({
-      id: "1",
-      email,
-      name: "Demo User",
-    })
-
-    if (success) {
-      navigate("/dashboard")
-    } else {
-      setError("Invalid email or password")
-    }
-  }
+    e.preventDefault();
+    login(credentials.email, credentials.password);
+    navigate("/dashboard");
+  };
 
   return (
-    <div className="auth-container">
-      <div className="auth-card">
-        <h2 className="auth-title">{t("login")}</h2>
-        {error && <div className="auth-error">{error}</div>}
-        <form onSubmit={handleSubmit} className="auth-form">
-          <div className="form-group">
-            <label htmlFor="email">{t("email")}</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">{t("password")}</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="********"
-              required
-            />
-          </div>
-          <button type="submit" className="auth-button">
-            {t("login")}
-          </button>
-        </form>
-        <div className="auth-links">
-          <p>
-          {t("Don't Have An Account ")}
-          </p>
-          <p>
-            <Link to="/register">{t("Register")}</Link>
-          </p>
+    <div className="login-page">
+      {/* Left: Landing Content */}
+      <div className="landing-section">
+        <h1>Welcome to Our Platform</h1>
+        <p>Your ultimate health companion for managing medications, caregivers, and pharmacies.</p>
+        <Link to='/dashboard'>
+        <button className="explore-btn">Explore More</button>
+        </Link>
+
+        {/* Additional Content Below */}
+        <div className="landing-extra">
+          <h2>Why Choose Us?</h2>
+          <p>✔ Easy medication tracking</p>
+          <p>✔ Find caregivers with ease</p>
+          <p>✔ Locate nearby pharmacies</p>
         </div>
       </div>
+
+      {/* Right: Login Section */}
+      <div className="login-section">
+        <h2>Login to Continue</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={credentials.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={credentials.password}
+            onChange={handleChange}
+            required
+          />
+          <button type="submit" className="login-btn">Login</button>
+        </form>
+        
+        <p className="register-text">Don't have an account? <a href="/register">Register</a></p>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
-
+export default Login;
