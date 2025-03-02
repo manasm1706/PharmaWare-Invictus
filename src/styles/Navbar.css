@@ -33,6 +33,7 @@
 
 .navbar-logo:hover {
     color: var(--primary-light);
+    text-decoration: none;
 }
 
 /* Navbar Links */
@@ -44,7 +45,7 @@
 .navbar-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 0.2rem;
     margin: 0;
     padding: 0;
 }
