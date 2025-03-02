@@ -1,0 +1,119 @@
+/* Base styles */
+:root {
+    --primary-color: #4a90e2;
+    --primary-dark: #3a7bc8;
+    --secondary-color: #6c757d;
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+    --light-color: #f8f9fa;
+    --dark-color: #343a40;
+    --background-color: #f5f7fa;
+    --text-color: #333;
+    --text-muted: #6c757d;
+    --border-color: #dee2e6;
+    --border-radius: 0.25rem;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --transition-speed: 0.3s;
+    --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+  }
+  
+  a:hover {
+    color: var(--primary-dark);
+    text-decoration: underline;
+  }
+  
+  button {
+    cursor: pointer;
+    font-family: inherit;
+  }
+  
+  .loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+  }
+  
+  /* High contrast mode */
+  body.high-contrast {
+    --primary-color: #0066cc;
+    --primary-dark: #004c99;
+    --background-color: #ffffff;
+    --text-color: #000000;
+    --border-color: #000000;
+    --text-muted: #444444;
+  }
+  
+  /* Text size adjustments */
+  body.text-small {
+    font-size: 0.875rem;
+  }
+  
+  body.text-medium {
+    font-size: 1rem;
+  }
+  
+  body.text-large {
+    font-size: 1.125rem;
+  }
+  
+  body.text-extra-large {
+    font-size: 1.25rem;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .main-content {
+      padding: 0.5rem;
+    }
+  }
+  
+  

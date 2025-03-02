@@ -1,0 +1,177 @@
+/* Medication List Container */
+.medication-list-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Page Title */
+  .medication-list-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+  }
+  
+  /* Filters */
+  .medication-filters {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .filter-button {
+    padding: 8px 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    background: #ffffff;
+    color: #007bff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-button:hover,
+  .filter-button.active {
+    background: #007bff;
+    color: white;
+  }
+  
+  /* Add Medication Button */
+  .add-medication-button-container {
+    margin-bottom: 20px;
+  }
+  
+  .add-medication-button {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #28a745;
+    color: white;
+    font-size: 14px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+  
+  .add-medication-button:hover {
+    background: #218838;
+  }
+  
+  /* Medication Cards */
+  .medications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+  }
+  
+  .medication-card {
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: left;
+    transition: transform 0.2s ease;
+  }
+  
+  .medication-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .medication-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .medication-card-header h2 {
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .dosage {
+    background: #007bff;
+    color: white;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 5px;
+  }
+  
+  /* Medication Details */
+  .medication-card-body p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .schedule-list ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .schedule-list li {
+    font-size: 14px;
+    color: #555;
+    padding: 3px 0;
+  }
+  
+  .schedule-list li.taken {
+    color: green;
+    font-weight: bold;
+  }
+  
+  /* Medication Actions */
+  .medication-card-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .edit-button {
+    background: #ffc107;
+    color: black;
+  }
+  
+  .edit-button:hover {
+    background: #e0a800;
+  }
+  
+  .delete-button {
+    background: #dc3545;
+    color: white;
+  }
+  
+  .delete-button:hover {
+    background: #c82333;
+  }
+  
+  /* No Medications Message */
+  .no-medications-message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #777;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .medication-list-container {
+      width: 90%;
+    }
+  }
+  

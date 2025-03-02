@@ -1,0 +1,160 @@
+/* AddMedication.css */
+
+.add-medication-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .add-medication-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .add-medication-form .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-input,
+  .form-textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .form-textarea {
+    resize: vertical;
+    height: 100px;
+  }
+  
+  .schedule-type-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .schedule-type-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  .schedule-type-button.active {
+    background: #007bff;
+    color: white;
+  }
+  
+  .schedule-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .time-input {
+    width: 120px;
+  }
+  
+  .day-selector {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .day-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .day-button.selected {
+    background: #007bff;
+    color: white;
+  }
+  
+  .add-time-button,
+  .remove-time-button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .add-time-button {
+    background: #28a745;
+    color: white;
+  }
+  
+  .add-time-button:hover {
+    background: #218838;
+  }
+  
+  .remove-time-button {
+    background: #dc3545;
+    color: white;
+  }
+  
+  .remove-time-button:hover {
+    background: #c82333;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .cancel-button,
+  .save-button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .cancel-button {
+    background: #6c757d;
+    color: white;
+  }
+  
+  .cancel-button:hover {
+    background: #5a6268;
+  }
+  
+  .save-button {
+    background: #007bff;
+    color: white;
+  }
+  
+  .save-button:hover {
+    background: #0056b3;
+  }
+  

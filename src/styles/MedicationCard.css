@@ -1,0 +1,159 @@
+/* Medication Card Styles */
+.medication-card {
+    background: var(--light-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    position: relative;
+}
+
+.medication-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Inactive Card */
+.medication-card.inactive {
+    opacity: 0.6;
+    filter: grayscale(80%);
+    pointer-events: none;
+}
+
+/* Header Section */
+.medication-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.medication-header h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
+/* Action Buttons */
+.medication-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.edit-button,
+.delete-button {
+    text-decoration: none;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+}
+
+.edit-button {
+    background: var(--primary-color);
+    color: white;
+}
+
+.edit-button:hover {
+    background: var(--primary-dark);
+}
+
+.delete-button {
+    background: var(--danger-color);
+    color: white;
+}
+
+.delete-button:hover {
+    background: var(--danger-dark);
+}
+
+/* Medication Details */
+.medication-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.dosage,
+.frequency,
+.instructions {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Date Range */
+.date-range {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--secondary-dark);
+}
+
+/* Next Dose Info */
+.next-dose {
+    background: var(--info-light);
+    padding: 0.8rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.next-dose p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--info-dark);
+}
+
+.next-dose .time {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-dark);
+}
+
+/* Take Button */
+.take-button {
+    background: var(--success-color);
+    color: white;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+    align-self: center;
+}
+
+.take-button:hover {
+    background: var(--success-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .medication-card {
+        padding: 1rem;
+    }
+
+    .medication-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .edit-button,
+    .delete-button {
+        font-size: 0.8rem;
+    }
+
+    .dosage,
+    .frequency,
+    .instructions {
+        font-size: 0.9rem;
+    }
+
+    .take-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+    }
+}

@@ -1,0 +1,170 @@
+/* Main container */
+.caregivers-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .caregivers-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  /* Add caregiver button */
+  .add-caregiver-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .add-caregiver-button:hover {
+    background: #0056b3;
+  }
+  
+  /* Caregiver cards */
+  .caregivers-list {
+    margin-top: 20px;
+  }
+  
+  .caregiver-card {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .caregiver-info h2 {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .caregiver-info p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
+  /* Notification settings */
+  .notification-settings ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .notification-settings li {
+    padding: 5px;
+    border-radius: 5px;
+  }
+  
+  .notification-settings .enabled {
+    background: #d4edda;
+    color: #155724;
+  }
+  
+  .notification-settings .disabled {
+    background: #f8d7da;
+    color: #721c24;
+  }
+  
+  /* Caregiver actions */
+  .caregiver-actions {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .edit-button,
+  .delete-button {
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .edit-button {
+    background: #ffc107;
+    color: black;
+  }
+  
+  .delete-button {
+    background: #dc3545;
+    color: white;
+  }
+  
+  .edit-button:hover {
+    background: #e0a800;
+  }
+  
+  .delete-button:hover {
+    background: #c82333;
+  }
+  
+  /* Caregiver form */
+  .caregiver-form-container {
+    margin-top: 20px;
+  }
+  
+  .caregiver-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .cancel-button {
+    background: #6c757d;
+    color: white;
+  }
+  
+  .save-button {
+    background: #007bff;
+    color: white;
+  }
+  
+  .cancel-button:hover,
+  .save-button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Responsive */
+  @media (max-width: 480px) {
+    .caregivers-container {
+      width: 90%;
+    }
+  
+    .caregiver-actions {
+      flex-direction: column;
+    }
+  }
+  

@@ -1,0 +1,198 @@
+/* Medication Form Container */
+.medication-form-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: var(--light-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.medication-form-container:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Title */
+.medication-form-container h1 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+}
+
+/* Form Structure */
+.medication-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.form-group label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    transition: border-color 0.2s ease-in-out;
+    background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Error Styling */
+.error {
+    border-color: var(--danger-color) !important;
+}
+
+.error-message {
+    font-size: 0.9rem;
+    color: var(--danger-color);
+}
+
+/* Form Row for Dates */
+.form-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Reminder Times */
+.reminder-time-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.reminder-time-row input[type="time"] {
+    flex: 1;
+}
+
+.remove-time-button {
+    background: var(--danger-color);
+    color: white;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.remove-time-button:hover {
+    background: var(--danger-dark);
+}
+
+.add-time-button {
+    background: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    padding: 0.6rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+    margin-top: 0.5rem;
+}
+
+.add-time-button:hover {
+    background: var(--primary-dark);
+}
+
+/* Checkbox Group */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 1.2rem;
+    height: 1.2rem;
+    cursor: pointer;
+}
+
+/* Buttons */
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+}
+
+.cancel-button,
+.save-button {
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.cancel-button {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.cancel-button:hover {
+    background: var(--secondary-dark);
+}
+
+.save-button {
+    background: var(--success-color);
+    color: white;
+}
+
+.save-button:hover {
+    background: var(--success-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .medication-form-container {
+        padding: 1.5rem;
+    }
+
+    .medication-form-container h1 {
+        font-size: 1.6rem;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .cancel-button,
+    .save-button {
+        width: 100%;
+    }
+}

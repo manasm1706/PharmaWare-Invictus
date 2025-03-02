@@ -1,0 +1,135 @@
+/* Reminder Alert Container */
+.reminder-alert {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--light-color);
+    border-left: 5px solid var(--primary-color);
+    padding: 1.5rem;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.reminder-alert:hover {
+    transform: translateY(-3px);
+}
+
+/* Reminder Content */
+.reminder-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Icon Styling */
+.reminder-icon {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.reminder-icon svg {
+    width: 40px;
+    height: 40px;
+    color: var(--primary-color);
+}
+
+/* Reminder Details */
+.reminder-details h3 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-dark);
+    margin-bottom: 5px;
+}
+
+.med-name {
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--secondary-dark);
+}
+
+.med-dosage {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.med-instructions {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Actions Buttons */
+.reminder-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.take-button,
+.dismiss-button {
+    flex: 1;
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.2s ease-in-out;
+}
+
+.take-button {
+    background: var(--primary-color);
+    color: white;
+    margin-right: 5px;
+}
+
+.take-button:hover {
+    background: var(--primary-dark);
+}
+
+.dismiss-button {
+    background: var(--gray-light);
+    color: var(--text-dark);
+}
+
+.dismiss-button:hover {
+    background: var(--gray-dark);
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reminder-alert {
+        width: 90%;
+        bottom: 10px;
+        right: 5%;
+    }
+
+    .reminder-actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .take-button,
+    .dismiss-button {
+        width: 100%;
+    }
+}

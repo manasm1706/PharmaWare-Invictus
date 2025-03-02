@@ -1,0 +1,131 @@
+/* General Dashboard Styling */
+.dashboard-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Title and Date */
+  .dashboard-title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .dashboard-time,
+  .dashboard-date {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  /* Dashboard Cards */
+  .dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .dashboard-card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    width: 320px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dashboard-card h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Medication List */
+  .medication-list {
+    max-height: 250px;
+    overflow-y: auto;
+    padding-right: 5px;
+  }
+  
+  /* Medication Item */
+  .medication-item {
+    display: flex;
+    flex-direction: column;
+    background: #f9f9f9;
+    border-left: 5px solid #007bff;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .medication-item h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .medication-info p {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .take-button {
+    background: #28a745;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  .take-button:hover {
+    background: #218838;
+  }
+  
+  /* No Medications */
+  .no-medications {
+    font-size: 14px;
+    text-align: center;
+    color: #777;
+  }
+  
+  /* Buttons and Actions */
+  .dashboard-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .action-button {
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  
+  .action-button:hover {
+    background: #0056b3;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .dashboard-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .dashboard-card {
+      width: 100%;
+    }
+  }
+  

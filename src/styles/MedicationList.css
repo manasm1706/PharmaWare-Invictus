@@ -1,0 +1,105 @@
+/* Container for Medication List */
+.medication-list-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background: var(--light-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+.medication-list-container:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Header Section */
+.list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.list-header h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-dark);
+}
+
+.add-button {
+    background: var(--primary-color);
+    color: white;
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.2s ease-in-out;
+}
+
+.add-button:hover {
+    background: var(--primary-dark);
+}
+
+/* Medication Sections */
+.medications-section {
+    margin-bottom: 2rem;
+}
+
+.medications-section h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--secondary-dark);
+    margin-bottom: 1rem;
+}
+
+/* Grid Layout for Medications */
+.medications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+    background: var(--background-light);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.empty-state p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.add-link {
+    font-size: 1rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+}
+
+.add-link:hover {
+    color: var(--primary-dark);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .medication-list-container {
+        padding: 1.5rem;
+    }
+
+    .list-header {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+
+    .medications-grid {
+        grid-template-columns: 1fr;
+    }
+}
