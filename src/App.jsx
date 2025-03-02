@@ -4,6 +4,7 @@ import Register from "./components/auth/Register"
 import Dashboard from "./components/dashboard/Dashboard"
 import MedicationForm from "./components/medications/MedicationForm"
 import MedicationList from "./components/medications/MedicationList"
+import MedicineSearch from "./components/medications/MedicineSearch"
 import CaregiversList from "./components/caregivers/CaregiversList"
 import CaregiversForm from "./components/caregivers/CaregiversForm"
 import PharmacyFinder from "./components/pharmacy/PharmacyFinder"
@@ -89,6 +90,14 @@ function App() {
                     element={
                       <ProtectedRoute>
                         <Settings />
+                      </ProtectedRoute>
+                    }
+                  />
+                  <Route
+                    path="/medicinesearch"
+                    element={
+                      <ProtectedRoute>
+                        <MedicineSearch />
                       </ProtectedRoute>
                     }
                   />

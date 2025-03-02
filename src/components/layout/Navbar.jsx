@@ -81,6 +81,16 @@ const Navbar = () => {
                 {t("settings")}
               </Link>
             </li>
+            <li>
+              <Link
+                to="/medicinesearch"
+                className={location.pathname === "/medicinesearch" ? "active" : ""}
+                onClick={closeMenu}
+              >
+                Medicine Search
+              </Link>
+            </li>
+
           </ul>
 
           <div className="navbar-user">

@@ -1,0 +1,100 @@
+.medicine-search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
+    text-align: center;
+    width: 50%;  /* Adjust width as needed */
+    margin: 100px auto 0; /* Push it below navbar & center horizontally */
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+  }
+  
+  .search-bar {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  input {
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  button {
+    padding: 10px 15px;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.3s;
+  }
+  
+  button:hover {
+    background: #357abd;
+  }
+  
+  .loading-text {
+    color: #666;
+    font-style: italic;
+  }
+  
+  .error-text {
+    color: red;
+  }
+  
+  .medicine-results {
+    margin-top: 1rem;
+  }
+  
+  .medicine-card {
+    display: flex;
+    align-items: center;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    transition: transform 0.2s;
+  }
+  
+  .medicine-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .medicine-img {
+    flex: 0 0 100px;
+    margin-right: 15px;
+  }
+  
+  .medicine-img img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .medicine-info {
+    flex: 1;
+    text-align: left;
+  }
+  
+  h3 {
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  p {
+    margin: 5px 0;
+    color: #555;
+  }
+  
