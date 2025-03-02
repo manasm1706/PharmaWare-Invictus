@@ -77,11 +77,6 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/settings" className={location.pathname === "/settings" ? "active" : ""} onClick={closeMenu}>
-                {t("settings")}
-              </Link>
-            </li>
-            <li>
               <Link
                 to="/medicinesearch"
                 className={location.pathname === "/medicinesearch" ? "active" : ""}
@@ -90,6 +85,12 @@ const Navbar = () => {
                 Medicine Search
               </Link>
             </li>
+            <li>
+              <Link to="/settings" className={location.pathname === "/settings" ? "active" : ""} onClick={closeMenu}>
+                {t("settings")}
+              </Link>
+            </li>
+            
 
           </ul>
 

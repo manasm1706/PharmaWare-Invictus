@@ -93,14 +93,14 @@ const PharmacyFinder = () => {
               id="location"
               value={location}
               onChange={(e) => setLocation(e.target.value)}
-              placeholder={userLocation ? t("usingCurrentLocation") : t("enterLocation")}
+              placeholder={userLocation ? t("usingCurrentLocation") : t("Enter Location")}
             />
           </div>
 
           <div className="form-group">
             <label htmlFor="medication">{t("medication")}</label>
             <select id="medication" value={selectedMedication} onChange={(e) => setSelectedMedication(e.target.value)}>
-              <option value="">{t("allMedications")}</option>
+              <option value="">{t("All Medications")}</option>
               {medications.map((med) => (
                 <option key={med.id} value={med.id}>
                   {med.name}
@@ -118,7 +118,7 @@ const PharmacyFinder = () => {
       {loading ? (
         <div className="loading-state">
           <div className="spinner"></div>
-          <p>{t("searchingPharmacies")}</p>
+          <p>{t("Searching Pharmacies")}</p>
         </div>
       ) : error ? (
         <div className="error-state">
@@ -126,7 +126,7 @@ const PharmacyFinder = () => {
         </div>
       ) : pharmacies.length > 0 ? (
         <div className="results-section">
-          <h2>{t("nearbyPharmacies")}</h2>
+          <h2>{t("Nearby Pharmacies")}</h2>
 
           <div className="pharmacies-list">
             {pharmacies.map((pharmacy) => (
@@ -147,7 +147,7 @@ const PharmacyFinder = () => {
 
                 <div className="pharmacy-actions">
                   <button onClick={() => getDirections(pharmacy.lat, pharmacy.lon, pharmacy.address)} className="directions-button">
-                    {t("getDirections")}
+                    {t("Get Directions")}
                   </button>
                 </div>
               </div>
@@ -156,7 +156,7 @@ const PharmacyFinder = () => {
         </div>
       ) : (
         <div className="empty-state">
-          <p>{t("searchForPharmacies")}</p>
+          <p>{t("Search For Pharmacies")}</p>
         </div>
       )}
     </div>

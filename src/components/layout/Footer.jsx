@@ -11,10 +11,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <div className="footer-section">
-          <h3>{t("appName")}</h3>
-          <p>{t("footerTagline")}</p>
-        </div>
+       
 
         <div className="footer-section">
           <h3>{t("quickLinks")}</h3>

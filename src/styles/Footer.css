@@ -1,41 +1,45 @@
 /* Footer Styles */
-
 .footer {
     background-color: var(--dark-color);
     color: var(--light-color);
-    padding: 2rem 0;
+    padding: 3rem 0;
     text-align: center;
+    font-size: 1rem;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* Footer Container */
 .footer-container {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
+    gap: 2rem;
 }
 
+/* Footer Sections */
 .footer-section {
     flex: 1;
     min-width: 250px;
     margin-bottom: 1.5rem;
+    text-align: left;
 }
 
+/* Section Headings */
 .footer-section h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--primary-light);
+    font-weight: bold;
 }
 
-.footer-section p {
-    font-size: 1rem;
-    color: var(--light-muted);
-}
-
+/* Footer Links */
 .footer-links {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .footer-links li {
@@ -46,20 +50,51 @@
     text-decoration: none;
     color: var(--light-color);
     font-size: 1rem;
-    transition: color 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .footer-links a:hover {
-    color: var(--primary-light);
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+/* Social Media Icons */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-links a {
+    color: var(--light-color);
+    font-size: 1.5rem;
+    transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
 }
 
 /* Footer Bottom */
 .footer-bottom {
     border-top: 1px solid var(--border-color);
-    padding-top: 1rem;
-    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    margin-top: 2rem;
     font-size: 0.9rem;
     color: var(--light-muted);
+    text-align: center;
+}
+
+/* Centered Tagline */
+.footer-bottom .tagline {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-light);
+    margin-bottom: 0.5rem;
 }
 
 /* Responsive Design */
@@ -72,6 +107,13 @@
 
     .footer-section {
         width: 100%;
-        margin-bottom: 2rem;
+    }
+
+    .footer-links a {
+        justify-content: center;
+    }
+
+    .social-links {
+        justify-content: center;
     }
 }

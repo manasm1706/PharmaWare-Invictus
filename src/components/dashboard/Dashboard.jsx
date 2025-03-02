@@ -179,7 +179,7 @@ const Dashboard = () => {
               ))
             ) : (
               <div className="empty-state">
-                <p>{t("noUpcomingDoses")}</p>
+                <p>{t("No Upcoming Doses")}</p>
               </div>
             )}
           </div>

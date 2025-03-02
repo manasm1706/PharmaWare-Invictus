@@ -134,7 +134,7 @@ const Settings = () => {
         <div className="setting-item">
           <div className="setting-info">
             <h3>{t("highContrast")}</h3>
-            <p>{t("highContrastDescription")}</p>
+           
           </div>
           <label className="toggle-switch">
             <input type="checkbox" name="highContrast" checked={settings.highContrast} onChange={handleChange} />
@@ -174,7 +174,7 @@ const Settings = () => {
         <div className="setting-item">
           <div className="setting-info">
             <h3>{t("voiceReminders")}</h3>
-            <p>{t("voiceRemindersDescription")}</p>
+           
           </div>
           <label className="toggle-switch">
             <input type="checkbox" name="voiceReminders" checked={settings.voiceReminders} onChange={handleChange} />
@@ -185,7 +185,7 @@ const Settings = () => {
         <div className="setting-item">
           <div className="setting-info">
             <h3>{t("reminderLeadTime")}</h3>
-            <p>{t("reminderLeadTimeDescription")}</p>
+    
           </div>
           <select
             name="reminderLeadTime"
@@ -204,7 +204,7 @@ const Settings = () => {
         <div className="setting-item">
           <div className="setting-info">
             <h3>{t("persistentReminders")}</h3>
-            <p>{t("persistentRemindersDescription")}</p>
+           
           </div>
           <label className="toggle-switch">
             <input
@@ -224,7 +224,7 @@ const Settings = () => {
         <div className="setting-item">
           <div className="setting-info">
             <h3>{t("exportData")}</h3>
-            <p>{t("exportDataDescription")}</p>
+         
           </div>
           <button onClick={exportData} className="action-button">
             {t("export")}
@@ -234,7 +234,7 @@ const Settings = () => {
         <div className="setting-item">
           <div className="setting-info">
             <h3>{t("importData")}</h3>
-            <p>{t("importDataDescription")}</p>
+            
           </div>
           <button className="action-button">{t("import")}</button>
         </div>
@@ -245,8 +245,8 @@ const Settings = () => {
 
         <div className="setting-item">
           <div className="setting-info">
-            <h3>{t("logout")}</h3>
-            <p>{t("logoutDescription")}</p>
+            <h3>{t("log out")}</h3>
+           
           </div>
           <button onClick={handleLogout} className="danger-button">
             {t("logout")}
@@ -256,7 +256,7 @@ const Settings = () => {
         <div className="setting-item">
           <div className="setting-info">
             <h3>{t("deleteAccount")}</h3>
-            <p>{t("deleteAccountDescription")}</p>
+          
           </div>
           <button onClick={handleDeleteAccount} className="danger-button">
             {t("deleteAccount")}
@@ -267,8 +267,8 @@ const Settings = () => {
       {showConfirmation && (
         <div className="confirmation-modal">
           <div className="modal-content">
-            <h2>{t("confirmDeleteAccount")}</h2>
-            <p>{t("deleteAccountWarning")}</p>
+            <h2>{t("Confirm Delete Account")}</h2>
+            <p>{t("Delete Account Warning")}</p>
             <div className="modal-actions">
               <button onClick={cancelDeleteAccount} className="cancel-button">
                 {t("cancel")}

@@ -40,7 +40,7 @@ const MedicationList = () => {
           </div>
         ) : (
           <div className="empty-state">
-            <p>{t("noActiveMedications")}</p>
+            <p>{t("No Active Medications")}</p>
             <Link to="/medications/add" className="add-link">
               {t("addYourFirst")}
             </Link>

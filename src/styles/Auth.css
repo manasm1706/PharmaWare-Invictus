@@ -65,6 +65,10 @@
     cursor: pointer;
     transition: background-color var(--transition-speed);
     margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
   
   .auth-button:hover {

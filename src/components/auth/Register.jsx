@@ -102,7 +102,8 @@ const Register = () => {
         </form>
         <div className="auth-links">
           <p>
-            {t("alreadyHaveAccount")} <Link to="/login">{t("login")}</Link>
+            {t("Already Have An Account")} 
+            </p><p><Link to="/login">{t("login")}</Link>
           </p>
         </div>
       </div>
