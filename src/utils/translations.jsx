@@ -147,7 +147,7 @@ const translations = {
     },
     es: {
       
-      medicationCompanion: 'Compañero de Adherencia a Medicamentos',
+      medicationCompanion: 'PharmaWare',
       welcome: 'Bienvenido',
       login: 'Iniciar Sesión',
       register: 'Registrarse',
@@ -293,7 +293,7 @@ const translations = {
     },
     hi: {
       
-      medicationCompanion: 'दवा अनुपालन साथी',
+      medicationCompanion: 'फार्मावियर',
       welcome: 'स्वागत है',
       login: 'लॉगिन',
       register: 'रजिस्टर',

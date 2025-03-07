@@ -79,13 +79,13 @@ const MedicineSearch = () => {
             <div key={index} className="medicine-card">
               <div className="medicine-img">
                 <a href={medicine.imgUrl} target="_blank" rel="noopener noreferrer">
-                  <img src="https://via.placeholder.com/100" alt={`${medicine.name} Image`} />
+                  <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/LB/UR/XO/185944736/panadol-paracetamol-tablets-500-mg.jpg" alt={`${medicine.name} Image`} />
                 </a>
               </div>
               <div className="medicine-info">
                 <h3>{medicine.name}</h3>
-                <p><strong>Used for:</strong> {medicine.disease}</p>
-                <p><strong>Form:</strong> {medicine.form}</p>
+                <p><strong>Used for:</strong> Moderate Pain, Fever</p>
+                <p><strong>Form:</strong> Tablets</p>
               </div>
             </div>
           ))}
