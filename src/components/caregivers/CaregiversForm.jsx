@@ -120,7 +120,7 @@ const CaregiversForm = () => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            placeholder="+1 (555) 123-4567"
+            placeholder="+91 98765 43210"
             className={errors.phone ? "error" : ""}
           />
           {errors.phone && <span className="error-message">{errors.phone}</span>}

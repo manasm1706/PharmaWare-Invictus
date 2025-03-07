@@ -6,58 +6,54 @@ import { LanguageContext } from "../../context/LanguageContext"
 import "../../styles/Footer.css"
 
 const Footer = () => {
-  const { t } = useContext(LanguageContext)
+  const { t, changeLanguage } = useContext(LanguageContext)
+
+  const handleLanguageChange = (event) => {
+    changeLanguage(event.target.value) // Updates the language context
+  }
 
   return (
     <footer className="footer">
       <div className="footer-container">
-       
+        
+        {/* Language Dropdown */}
+        <div className="language-selector">
+          <label htmlFor="language">{t("selectLanguage")}:</label>
+          <select id="language" onChange={handleLanguageChange} className="language-dropdown">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="es">Español (Spanish)</option>
+            <option value="fr">Français (French)</option>
+            <option value="de">Deutsch (German)</option>
+          </select>
+        </div>
 
         <div className="footer-section">
           <h3>{t("quickLinks")}</h3>
           <ul className="footer-links">
-            <li>
-              <Link to="/dashboard">{t("dashboard")}</Link>
-            </li>
-            <li>
-              <Link to="/medications">{t("medications")}</Link>
-            </li>
-            <li>
-              <Link to="/caregivers">{t("caregivers")}</Link>
-            </li>
-            <li>
-              <Link to="/pharmacy-finder">{t("pharmacyFinder")}</Link>
-            </li>
+            <li><Link to="/dashboard">{t("dashboard")}</Link></li>
+            <li><Link to="/medications">{t("medications")}</Link></li>
+            <li><Link to="/caregivers">{t("caregivers")}</Link></li>
+            <li><Link to="/pharmacy-finder">{t("pharmacyFinder")}</Link></li>
           </ul>
         </div>
 
         <div className="footer-section">
           <h3>{t("help")}</h3>
           <ul className="footer-links">
-            <li>
-              <Link to="/help">{t("helpCenter")}</Link>
-            </li>
-            <li>
-              <Link to="/privacy">{t("privacyPolicy")}</Link>
-            </li>
-            <li>
-              <Link to="/terms">{t("termsOfService")}</Link>
-            </li>
-            <li>
-              <Link to="/contact">{t("contactSupport")}</Link>
-            </li>
+            <li><Link to="/help">{t("helpCenter")}</Link></li>
+            <li><Link to="/privacy">{t("privacyPolicy")}</Link></li>
+            <li><Link to="/terms">{t("termsOfService")}</Link></li>
+            <li><Link to="/contact">{t("contactSupport")}</Link></li>
           </ul>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <p>
-          &copy; {new Date().getFullYear()} {t("appName")}. {t("allRightsReserved")}
-        </p>
+        <p>&copy; {new Date().getFullYear()} {t("appName")}. {t("allRightsReserved")}</p>
       </div>
     </footer>
   )
 }
 
 export default Footer
-
