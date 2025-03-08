@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../../styles/MedicineSearch.css";
 
 const MedicineSearch = () => {
@@ -6,54 +7,94 @@ const MedicineSearch = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const navigate = useNavigate(); 
 
+  // Function to fetch medicine details from FDA API
   const fetchMedicineData = async () => {
     if (!medicineName.trim()) {
       setError("Please enter a medicine name.");
       return;
     }
+  
     setLoading(true);
     setError("");
     setResults([]);
-
+  
     try {
       const encodedMedicineName = encodeURIComponent(medicineName);
       const response = await fetch(
-        `https://api.fda.gov/drug/event.json?search=patient.drug.medicinalproduct:"${encodedMedicineName}"&limit=5`
+        `https://api.fda.gov/drug/label.json?search=openfda.brand_name:"${encodedMedicineName}"&limit=5`
       );
-
+  
       if (!response.ok) {
         throw new Error("API request failed");
       }
-
+  
       const data = await response.json();
-      const searchLower = medicineName.toLowerCase();
-
-      if (data.results && data.results.length > 0) {
-        const extractedData = data.results.flatMap((report) =>
-          report.patient?.drug
-            ?.filter((drug) => drug.medicinalproduct?.toLowerCase() === searchLower)
-            .map((drug) => ({
-              name: drug.medicinalproduct,
-              disease: drug.drugindication || "Not specified",
-              form: drug.drugdosageform || "Unknown",
-              imgUrl: `https://www.google.com/search?tbm=isch&q=${encodeURIComponent(drug.medicinalproduct)}`, // Google Image Search
-            }))
-        );
-
-        const uniqueMedicines = Array.from(new Map(extractedData.map(m => [m.name.toLowerCase(), m])).values());
-
-        setResults(uniqueMedicines.length ? uniqueMedicines : []);
-        if (uniqueMedicines.length === 0) {
-          setError("No exact matches found.");
-        }
-      } else {
+      if (!data.results || data.results.length === 0) {
         setError("No results found.");
+        setLoading(false);
+        return;
+      }
+  
+      const extractedData = data.results.map((med) => ({
+        name: med.openfda?.brand_name?.[0] || "Unknown",
+        disease: formatUsage(med.indications_and_usage?.[0] || "Not specified"),
+        form: med.openfda?.dosage_form?.[0] || "Tablets",
+      }));
+  
+      const uniqueMedicines = Array.from(new Map(extractedData.map(m => [m.name.toLowerCase(), m])).values());
+  
+      setResults(uniqueMedicines.length ? uniqueMedicines : []);
+      if (uniqueMedicines.length === 0) {
+        setError("No exact matches found.");
+      } else {
+        fetchMedicineImages(uniqueMedicines);
       }
     } catch (err) {
       setError("Failed to fetch data. Please try again.");
     } finally {
       setLoading(false);
+    }
+  };
+
+  const formatUsage = (text) => {
+    if (!text) return "Not specified";
+  
+    text = text.replace(/ask your doctor about other uses.*/gi, "").trim();
+    text = text.replace(/because of its delayed action.*/gi, "").trim();
+    
+    text = text.replace(/\. /g, ".<br />");
+  
+    return text;
+  };
+  
+  
+
+  const fetchMedicineImages = async (medicines) => {
+    try {
+      const updatedResults = await Promise.all(
+        medicines.map(async (medicine) => {
+          const imageUrl = await getMedicineImage(medicine.name);
+          return { ...medicine, imgUrl: imageUrl };
+        })
+      );
+      setResults(updatedResults);
+    } catch {
+      setError("Could not fetch images.");
+    }
+  };
+
+  const getMedicineImage = async (medicineName) => {
+    try {
+      const imageResponse = await fetch(
+        `https://www.googleapis.com/customsearch/v1?q=${encodeURIComponent(medicineName)}&cx=${GOOGLE_CSE_ID}&searchType=image&key=${GOOGLE_API_KEY}&num=1`
+      );
+
+      const imageData = await imageResponse.json();
+      return imageData.items?.[0]?.link || "https://via.placeholder.com/150"; // Default image if none found
+    } catch {
+      return "https://via.placeholder.com/150";
     }
   };
 
@@ -76,16 +117,19 @@ const MedicineSearch = () => {
       <div className="medicine-results">
         {results.length > 0 &&
           results.map((medicine, index) => (
-            <div key={index} className="medicine-card">
+            <div 
+              key={index} 
+              className="medicine-card"
+              onClick={() => navigate(`/medicine/${encodeURIComponent(medicine.name)}`)} // 
+              style={{ cursor: "pointer" }} 
+            >
               <div className="medicine-img">
-                <a href={medicine.imgUrl} target="_blank" rel="noopener noreferrer">
-                  <img src="https://5.imimg.com/data5/SELLER/Default/2023/3/LB/UR/XO/185944736/panadol-paracetamol-tablets-500-mg.jpg" alt={`${medicine.name} Image`} />
-                </a>
+                <img src={medicine.imgUrl} alt={`${medicine.name} Image`} />
               </div>
               <div className="medicine-info">
                 <h3>{medicine.name}</h3>
-                <p><strong>Used for:</strong> Moderate Pain, Fever</p>
-                <p><strong>Form:</strong> Tablets</p>
+                <p><strong>Used for:</strong> {medicine.disease}</p>
+                <p><strong>Form:</strong> {medicine.form}</p>
               </div>
             </div>
           ))}
