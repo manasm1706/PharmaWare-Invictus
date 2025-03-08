@@ -16,34 +16,33 @@ const Register = () => {
   const { t } = useContext(LanguageContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
-
-    // Simple validation
+  
+    // ✅ Ensure all fields are filled
     if (!name || !email || !password || !confirmPassword) {
       setError("Please fill in all fields");
       return;
     }
-
+  
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-
-    // Simulated registration process
-    const success = register({
-      id: Date.now().toString(),
-      name,
-      email,
-    });
-
+  
+    console.log("🔹 Sending register request:", { name, email, password });
+  
+    // ✅ Call the register function correctly
+    const success = await register(name, email, password);
+  
     if (success) {
       navigate("/dashboard");
     } else {
       setError("Registration failed. Please try again.");
     }
   };
+  
 
   return (
     <div className="auth-wrapper">

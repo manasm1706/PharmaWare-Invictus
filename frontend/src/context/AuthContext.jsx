@@ -45,27 +45,28 @@ export const AuthProvider = ({ children }) => {
   // ✅ Send register request to backend
   const register = async (name, email, password) => {
     try {
+      console.log("🔹 Sending register request:", { name, email, password });
+  
       const response = await fetch("http://localhost:5002/api/auth/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password }),
+        body: JSON.stringify({ name, email, password }), // ✅ Ensure correct data format
       });
-
+  
       const data = await response.json();
-
       if (!response.ok) throw new Error(data.message || "Registration failed");
-
+  
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
       setCurrentUser(data.user);
-
+  
       return true;
     } catch (error) {
-      console.error("Registration Error:", error.message);
+      console.error("❌ Register Error:", error.message);
       return false;
     }
   };
-
+  
   // ✅ Logout function
   const logout = () => {
     localStorage.removeItem("token");

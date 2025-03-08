@@ -7,7 +7,12 @@ export const registerUser = async (req, res) => {
   try {
     console.log("Incoming registration request:", req.body);
 
+    // ✅ Ensure all fields exist before proceeding
     const { name, email, password } = req.body;
+    if (!name || !email || !password) {
+      console.log("❌ Missing fields:", { name, email, password });
+      return res.status(400).json({ message: "All fields are required" });
+    }
 
     let user = await User.findOne({ email });
     if (user) {
@@ -35,6 +40,7 @@ export const registerUser = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
+
 
 export const loginUser = async (req, res) => {
   try {
