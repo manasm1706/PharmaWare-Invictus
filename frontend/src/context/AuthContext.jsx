@@ -66,7 +66,54 @@ export const AuthProvider = ({ children }) => {
       return false;
     }
   };
+  const updateProfile = async (name, email, password) => {
+    try {
+      const token = localStorage.getItem("token");
   
+      const response = await fetch("http://localhost:5002/api/auth/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`, // ✅ Send token for authentication
+        },
+        body: JSON.stringify({ name, email, password }),
+      });
+  
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message || "Failed to update profile");
+  
+      setCurrentUser(data);
+      localStorage.setItem("user", JSON.stringify(data));
+  
+      return true;
+    } catch (error) {
+      console.error("❌ Update Profile Error:", error.message);
+      return false;
+    }
+  };
+  
+  const deleteAccount = async () => {
+    try {
+      const token = localStorage.getItem("token");
+  
+      const response = await fetch("http://localhost:5002/api/auth/delete", {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+  
+      const data = await response.json();
+      if (!response.ok) throw new Error(data.message || "Failed to delete account");
+  
+      logout(); // ✅ Remove user from localStorage and redirect
+      return true;
+    } catch (error) {
+      console.error("❌ Delete Account Error:", error.message);
+      return false;
+    }
+  };
+    
   // ✅ Logout function
   const logout = () => {
     localStorage.removeItem("token");

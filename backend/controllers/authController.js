@@ -88,3 +88,45 @@ export const loginUser = async (req, res) => {
     res.status(500).json({ message: "Server error", error: error.message });
   }
 };
+
+// ✅ Update User Profile
+export const updateUser = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    const userId = req.user.id; // Extracted from JWT token
+
+    console.log("🔹 Update request for user:", userId, { name, email, password });
+
+    let updateFields = {};
+    if (name) updateFields.name = name;
+    if (email) updateFields.email = email;
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      updateFields.password = await bcrypt.hash(password, salt);
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(userId, updateFields, { new: true }).select("-password");
+
+    console.log("✅ Updated user:", updatedUser);
+    res.json(updatedUser);
+  } catch (error) {
+    console.error("❌ Update User Error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+// ✅ Delete User Account
+export const deleteUser = async (req, res) => {
+  try {
+    const userId = req.user.id; // Extracted from JWT token
+
+    console.log("🔹 Deleting user:", userId);
+    await User.findByIdAndDelete(userId);
+
+    res.json({ message: "User account deleted successfully" });
+  } catch (error) {
+    console.error("❌ Delete User Error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
